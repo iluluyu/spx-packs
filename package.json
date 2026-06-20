@@ -1,0 +1,11 @@
+{
+  "name": "spx-packs",
+  "version": "0.1.0",
+  "description": "Shared, platform-aware rule packs for spx Mihomo/Clash Meta JS overrides.",
+  "type": "module",
+  "exports": {
+    ".": "./index.js",
+    "./packs": "./packs/index.js"
+  },
+  "license": "MIT"
+}
