@@ -11,8 +11,12 @@ payload:
   - PROCESS-NAME,frpc.exe
   - PROCESS-NAME,frps
   - PROCESS-NAME,frpc
-  # 微信桌面客户端(仅 Windows)
+  # 微信桌面客户端(Windows: Weixin.exe / Weixin;macOS: WeChat;Linux: wechat)
   - PROCESS-NAME,Weixin.exe
-  # 网易 UU 远程 GameViewer(仅 Windows)
+  - PROCESS-NAME,Weixin
+  - PROCESS-NAME,WeChat
+  - PROCESS-NAME,wechat
+  # 网易 UU 远程(原 GameViewer;Windows: GameViewer.exe + Service;macOS: 仅主控端,二进制名沿用 GameViewer;Linux: 无官方版)
   - PROCESS-NAME,GameViewer.exe
   - PROCESS-NAME,GameViewerService.exe
+  - PROCESS-NAME,GameViewer
