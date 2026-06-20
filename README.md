@@ -1,42 +1,51 @@
 # spx-packs
 
-[spx](https://github.com/iluluyu/spx) 的共享「规则包」,给 Mihomo / Clash Meta 的 JavaScript 覆写脚本复用。
-
-## 这是什么
-
-`spx` 仓库里有多个覆写变体(`meta.js` / `meta-unix.js` / …),它们之间大量重复(DNS、代理组、大部分规则)。本仓库把可复用的部分抽成结构化的 pack:
-
-- **进程名 pack**(`easytier` / `sunshine` / `frp` / `weixin` / `gameviewer`):区分 `win` / `unix`,比如 `easytier-core.exe`(Windows)与 `easytier-core`(Linux/macOS)。
-- **平台无关 pack**(`scholar` / `geo`):DOMAIN / GEOSITE / GEOIP 这类与系统无关的规则,放进 `common`。
-- **共享构建器**(`lib/dns.js` 的 `buildDns`、`lib/groups.js` 的 `buildGroups` + `groupBaseOption`)。
-
-## ⚠️ 不能在运行时 import
-
-Mihomo 的 JS 覆写**运行时只吃单个自包含文件,没有 `require` / `import`**(见 [override-hub](https://github.com/mihomo-party-org/override-hub),全是单文件)。所以本仓库的内容只能被 `spx` 的**构建脚本**(`scripts/build.mjs`)在构建期引用,再内联进最终的 `src/*.js`,不能在客户端运行时直接 import。
+[spx](https://github.com/iluluyu/spx) 的**规则集仓库**,给 Mihomo / Clash Meta 覆写脚本通过 `rule-providers` + `RULE-SET` 引用。思路同 [Loyalsoldier/clash-rules](https://github.com/Loyalsoldier/clash-rules):把一类规则打包成一个 `.txt`,覆写文件用 URL 加载,避免在多个覆写变体里重复手抄。
 
 ## 结构
 
-```
-index.js               门面:re-export buildDns / buildGroups / composeRules / packs
-lib/dns.js             buildDns(opts?) → dnsConfig
-lib/groups.js          groupBaseOption + buildGroups(providerNames) → proxy-groups[]
-lib/compose.js         composeRules({ platform, packs }) → rules[]
-packs/<software>.js    { name, common[], win[], unix[] }
-packs/index.js         聚合导出所有 pack
+```text
+rulesets/
+  applications.txt   本地软件进程名(Easytier / Sunshine / frp / 微信 / UU 远程)
 ```
 
-### Pack 形状
+每个 `.txt` 是 **mihomo classical 规则集**:
 
-```js
-export default {
-  name: "easytier",
-  common: [],                                  // 平台无关规则
-  win:   ["PROCESS-NAME,easytier-core.exe,DIRECT", …],
-  unix:  ["PROCESS-NAME,easytier-core,DIRECT", …],
+- 内容是 YAML,以 `payload:` 开头,每行 `- <规则>`。
+- 每条规则**不带 policy** —— policy 由覆写文件里的 `RULE-SET,<名>,<policy>` 统一指定。
+- `behavior: classical`,`format: yaml`。
+
+## 跨平台
+
+`applications.txt` 把 Windows(`.exe`)与 Unix(裸名)进程名**放在同一个文件**。Windows 只匹配带 `.exe` 的,Unix 只匹配裸名,互不干扰,所以**一个文件通吃两端**,无需为 win/unix 各开一份。
+
+## 在覆写里引用
+
+```javascript
+// rule-providers
+config["rule-providers"] = {
+  "applications": {
+    "type": "http",
+    "format": "yaml",
+    "behavior": "classical",
+    "url": "https://cdn.jsdelivr.net/gh/iluluyu/spx-packs@main/rulesets/applications.txt",
+    "path": "./ruleset/spx-packs/applications.yaml",
+    "interval": 864000
+  }
 };
+
+// rules
+config["rules"] = [
+  "RULE-SET,applications,DIRECT",
+  // ...其余规则
+];
 ```
 
-`composeRules({ platform: "win" | "unix", packs })` 会把每个 pack 的 `common` 加上对应平台的 `win`/`unix` 铺平成 `rules[]`,顺序就是 `packs` 的传入顺序。
+## 新增规则集
+
+1. 在 `rulesets/` 下新建 `<name>.txt`(`payload:` 开头的 classical 规则)。
+2. push 到 main。
+3. 在覆写文件的 `rule-providers` 注册并加 `RULE-SET,<name>,<policy>`。
 
 ## 许可
 

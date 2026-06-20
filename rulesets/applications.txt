@@ -1,0 +1,18 @@
+payload:
+  # Easytier 组网客户端
+  - PROCESS-NAME,easytier-core.exe
+  - PROCESS-NAME,easytier-gui.exe
+  - PROCESS-NAME,easytier-core
+  - PROCESS-NAME,easytier-gui
+  # Sunshine / Apollo 串流服务端
+  - PROCESS-NAME,sunshine.exe
+  - PROCESS-NAME,sunshine
+  # frp 内网穿透
+  - PROCESS-NAME,frpc.exe
+  - PROCESS-NAME,frps
+  - PROCESS-NAME,frpc
+  # 微信桌面客户端(仅 Windows)
+  - PROCESS-NAME,Weixin.exe
+  # 网易 UU 远程 GameViewer(仅 Windows)
+  - PROCESS-NAME,GameViewer.exe
+  - PROCESS-NAME,GameViewerService.exe
