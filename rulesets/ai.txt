@@ -1,0 +1,5 @@
+payload:
+  # Google AI API endpoints
+  - DOMAIN,agentaicode.googleapis.com
+  - DOMAIN,businessaicode.googleapis.com
+  - DOMAIN,autopush-cloudcode-pa.sandbox.googleapis.com

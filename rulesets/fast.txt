@@ -1,0 +1,5 @@
+payload:
+  # 学术站点
+  - DOMAIN-SUFFIX,arxiv.org
+  - DOMAIN-SUFFIX,scirate.com
+  - DOMAIN-SUFFIX,overleaf.com

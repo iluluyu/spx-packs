@@ -6,8 +6,13 @@
 
 ```text
 rulesets/
-  applications.txt   本地软件进程名(Easytier / Sunshine / frp / 微信 / UU 远程)
+  applications.txt   进程名规则(Easytier / Sunshine / frp / 微信 / UU 远程)
+  ai.txt             Google AI API 域名
+  fast.txt           学术站点域名(arxiv / scirate / overleaf)
 ```
+
+一个 `.txt` 对应**一个 policy 方向**:同一规则集的所有条目共享 `RULE-SET,<名>,<policy>`
+里指定的 policy,不同去向的规则拆成不同文件。
 
 每个 `.txt` 是 **mihomo classical 规则集**:
 
