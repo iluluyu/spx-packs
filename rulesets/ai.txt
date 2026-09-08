@@ -3,3 +3,17 @@ payload:
   - DOMAIN,agentaicode.googleapis.com
   - DOMAIN,businessaicode.googleapis.com
   - DOMAIN,autopush-cloudcode-pa.sandbox.googleapis.com
+  # Gemini web session companion domains
+  - DOMAIN,accounts.google.com
+  - DOMAIN,www.google.com
+  - DOMAIN,www.googleapis.com
+  - DOMAIN,apis.google.com
+  - DOMAIN,ogs.google.com
+  - DOMAIN,oauthaccountmanager.googleapis.com
+  - DOMAIN,accountcapabilities-pa.googleapis.com
+  - DOMAIN,securitydomain-pa.googleapis.com
+  - DOMAIN,signaler-pa.clients6.google.com
+  - DOMAIN,appsgenaiserver-pa.clients6.google.com
+  - DOMAIN,peoplestack-pa.clients6.google.com
+  - DOMAIN,lh3.google.com
+  - DOMAIN,lh3.googleusercontent.com
