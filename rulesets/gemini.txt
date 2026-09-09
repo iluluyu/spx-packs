@@ -1,9 +1,9 @@
 payload:
-  # Google AI API endpoints not yet covered by geosite:google-deepmind
+  # Google AI API endpoints
   - DOMAIN,agentaicode.googleapis.com
   - DOMAIN,businessaicode.googleapis.com
   - DOMAIN,autopush-cloudcode-pa.sandbox.googleapis.com
-  # Gemini web session companion domains (must precede GEOSITE,google)
+  # Gemini web session companion domains
   - DOMAIN,accounts.google.com
   - DOMAIN,www.google.com
   - DOMAIN,www.googleapis.com

@@ -7,7 +7,7 @@
 ```text
 rulesets/
   applications.txt   进程名规则(Easytier / Sunshine / frp / 微信 / UU 远程)
-  gemini.txt         Gemini 备用后端与 Web 会话伴随域名(geosite 未收录部分)
+  gemini.txt         Gemini 备用后端与 Web 会话伴随域名
   fast.txt           学术站点域名(arxiv / scirate / overleaf)
 ```
 
