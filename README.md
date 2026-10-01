@@ -8,7 +8,7 @@
 rulesets/
   applications.txt   进程名规则(Easytier / Sunshine / frp / 微信 / UU 远程)
   gemini.txt         Gemini 备用后端与 Web 会话伴随域名
-  claude.txt         Claude / Anthropic 全部域名
+  claude.txt         geosite anthropic 未收录的 Claude 缺口域名
   fast.txt           学术站点域名(arxiv / scirate / overleaf)
 ```
 
