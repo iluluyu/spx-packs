@@ -2,3 +2,5 @@ payload:
   # gaps not yet in geosite anthropic list (main coverage via GEOSITE,anthropic)
   # artifacts sharing
   - DOMAIN-SUFFIX,claude.site
+  # new claude site (same edge as claude.ai, cert *.claude.dev)
+  - DOMAIN-SUFFIX,claude.dev
