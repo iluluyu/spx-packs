@@ -1,0 +1,8 @@
+payload:
+  # Anthropic API / console
+  - DOMAIN-SUFFIX,anthropic.com
+  # Claude web
+  - DOMAIN-SUFFIX,claude.ai
+  - DOMAIN-SUFFIX,claude.com
+  # Claude artifacts sharing
+  - DOMAIN-SUFFIX,claude.site
