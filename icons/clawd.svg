@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-0.5 2 16 16" width="128" height="128">
+  <!-- Clawd: Claude 社区像素龙虾吉祥物,源形取自 https://github.com/abderrahimghazali/clawd-pet (public/pets/clawd-200.svg),裁去状态文字/对勾/动画并居中 viewBox -->
+  <rect x="3" y="15" width="9" height="1" fill="#000" opacity="0.5"/>
+  <g fill="#DE886D">
+    <rect x="3" y="13" width="1" height="2"/><rect x="5" y="13" width="1" height="2"/>
+    <rect x="9" y="13" width="1" height="2"/><rect x="11" y="13" width="1" height="2"/>
+    <rect x="2" y="6" width="11" height="7"/>
+    <rect x="0" y="9" width="2" height="2"/>
+    <rect x="13" y="6" width="2" height="2"/>
+    <rect x="14" y="4" width="1" height="2"/>
+  </g>
+  <g fill="#000">
+    <rect x="5" y="8" width="1" height="2"/><rect x="10" y="8" width="1" height="2"/>
+  </g>
+</svg>

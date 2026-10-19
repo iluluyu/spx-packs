@@ -10,6 +10,8 @@ rulesets/
   gemini.txt         Gemini 备用后端与 Web 会话伴随域名
   claude.txt         geosite anthropic 未收录的 Claude 缺口域名
   fast.txt           学术站点域名(arxiv / scirate / overleaf)
+icons/
+  clawd.svg          Clawd(Claude 社区像素龙虾吉祥物)组图标,覆写经 jsdelivr 引用
 ```
 
 一个 `.txt` 对应**一个 policy 方向**:同一规则集的所有条目共享 `RULE-SET,<名>,<policy>`
