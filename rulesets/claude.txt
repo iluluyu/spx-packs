@@ -1,6 +1,12 @@
 payload:
-  # gaps not yet in geosite anthropic list (main coverage via GEOSITE,anthropic)
-  # artifacts sharing
-  - DOMAIN-SUFFIX,claude.site
-  # new claude site (same edge as claude.ai, cert *.claude.dev)
-  - DOMAIN-SUFFIX,claude.dev
+  # Claude KYC vendor (Persona) — official allowlist is entirely *.withpersona.com,
+  # keeps the identity-verification flow on the same exit as claude.ai
+  - DOMAIN-SUFFIX,withpersona.com
+  # legacy Cloudflare CDN alias, A record points straight at 160.79.104.10
+  - DOMAIN,anthropic.com.cdn.cloudflare.net
+  # Anthropic-owned IP fallback for bare-IP connections: ARIN allocates
+  # 160.79.104.0/21 to Anthropic PBC; AS399358 announces only /23 + two v6 /48s,
+  # the rest is GCP/AWS BYOIP — hence CIDR, not IP-ASN
+  - IP-CIDR,160.79.104.0/21,no-resolve
+  - IP-CIDR6,2607:6bc0::/48,no-resolve
+  - IP-CIDR6,2607:6bc0:11::/48,no-resolve

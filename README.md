@@ -8,7 +8,7 @@
 rulesets/
   applications.txt   进程名规则(Easytier / Sunshine / frp / 微信 / UU 远程)
   gemini.txt         Gemini 备用后端与 Web 会话伴随域名
-  claude.txt         geosite anthropic 未收录的 Claude 缺口域名
+  claude.txt         Claude 补缺(Persona KYC 域 / 旧 CDN 别名 / Anthropic 自有 IP 段兜底)
   fast.txt           学术站点域名(arxiv / scirate / overleaf)
 icons/
   clawd.svg          Clawd(Claude 社区像素龙虾吉祥物)组图标,覆写经 jsdelivr 引用
